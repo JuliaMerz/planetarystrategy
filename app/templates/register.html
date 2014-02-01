@@ -1,0 +1,43 @@
+<form action="" method="post" name="register">
+        {{form.hidden_tag()}}
+        <table class="form">
+                <tr>
+                        <td>Username: </td><td>{{form.username}}</td>
+                        <td>{% for error in form.errors.username %}
+                        <span style="color: red;">{{error}}</span>
+                        {% endfor %}</td>
+                </tr>
+
+                <tr>
+                        <td>Email: </td><td>{{form.email}}</td>
+                        <td>{% for error in form.errors.email %}
+                        <span style="color: red;">{{error}}</span>
+                        {% endfor %}</td>
+                </tr>
+
+                <tr>
+                        <td>Confirm Email: </td><td>{{form.confirm_email}}</td>
+                        <td>{% for error in form.errors.confirm_email %}
+                        <span style="color: red;">{{error}}</span>
+                        {% endfor %}</td>
+                </tr>
+
+                <tr>
+                        <td>Password: </td><td>{{form.password}}</td>
+                        <td>{% for error in form.errors.password %}
+                        <span style="color: red;">{{error}}</span>
+                        {% endfor %}</td>
+                </tr>
+
+                <tr>
+                        <td>Confirm Password:</td><td> {{form.confirm_password}}</td>
+                        <td>{% for error in form.errors.confirm_password %}
+                        <span style="color: red;">{{error}}</span>
+                        {% endfor %}</td>
+                </tr>
+
+                <tr><td></td><td><input type="submit" value="Register" style="float: right;"></td></tr>
+        </table>
+</form>
+
+
