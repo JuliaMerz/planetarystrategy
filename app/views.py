@@ -4,7 +4,7 @@ from flask.ext.login import current_user, login_user, login_required, logout_use
 from forms import LoginForm, RegisterForm
 from werkzeug.security import generate_password_hash
 from datetime import datetime
-from models import User, Article
+from models import User, Post
 
 @app.route('/')
 @app.route('/index')
@@ -30,7 +30,7 @@ def article(articleid):
     if not article:
         abort(404)
     return render_template('articlepage.html',
-            article = article
+            article = article)
     
 
 @app.route('/login', methods = ['GET', 'POST'])
