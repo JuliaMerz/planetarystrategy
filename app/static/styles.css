@@ -1,0 +1,73 @@
+html{
+    background-color:#333333;
+    color: white;
+}
+#body {
+    width: 1200px;
+    margin: auto;
+}
+
+.wrapper {
+    background-color: #333;
+    padding: 10px;
+    /*display: block;
+    border: solid black 1px;*/
+    margin: 15px;
+}
+#content {
+    float: left;
+	width: 786px;
+    margin-top: 0;
+}
+
+#sidebar {
+    width: auto;
+    margin-left: 841px;
+}
+
+.menu td {
+    /*order: solid black 1px;*/
+    text-align:center;
+    width:auto;
+    padding: 10px;
+}
+
+#topmenu {
+    width:auto;
+    padding:0px;
+}
+
+.cutcorner{
+    padding-left: +15px;
+    padding-right: +15px;
+    
+    background: #333333; /* credits to Lea Verou from http://lea.verou.me/2011/03/beveled-corners-negative-border-radius-with-css3-gradients/ */
+    background:
+        -linear-gradient(45deg,  transparent 10px, #222222 10px),
+        -linear-gradient(135deg, transparent 10px, #222222 10px),
+        -linear-gradient(225deg, transparent 10px, #222222 10px),
+        -linear-gradient(315deg, transparent 10px, #222222 10px);
+    background:
+        -moz-linear-gradient(45deg,  transparent 10px, #222222 10px),
+        -moz-linear-gradient(135deg, transparent 10px, #222222 10px),
+        -moz-linear-gradient(225deg, transparent 10px, #222222 10px),
+        -moz-linear-gradient(315deg, transparent 10px, #222222 10px);
+    background:
+        -o-linear-gradient(45deg,  transparent 10px, #222222 10px),
+        -o-linear-gradient(135deg, transparent 10px, #222222 10px),
+        -o-linear-gradient(225deg, transparent 10px, #222222 10px),
+        -o-linear-gradient(315deg, transparent 10px, #222222 10px);
+    background:
+        -webkit-linear-gradient(45deg,  transparent 10px, #222222 10px),
+        -webkit-linear-gradient(135deg, transparent 10px, #222222 10px),
+        -webkit-linear-gradient(225deg, transparent 10px, #222222 10px),
+        -webkit-linear-gradient(315deg, transparent 10px, #222222 10px);
+    background-position: bottom left, bottom right, top right, top left;
+    -moz-background-size: 50% 50%;
+    -webkit-background-size: 50% 50%;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+}
+.menu {
+    width:100%;
+}
