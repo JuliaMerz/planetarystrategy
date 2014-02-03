@@ -1,16 +1,20 @@
 from flask import render_template, flash, redirect, session, url_for, request, g
 from app import app, db, lm
 from flask.ext.login import current_user, login_user, login_required, logout_user
-from forms import LoginForm, RegisterForm
+from forms import LoginForm, RegisterForm, PostArticle
 from werkzeug.security import generate_password_hash
 from datetime import datetime
-from models import User, Post
+from models import User, Post, ROLE_WRITER
 
 @app.route('/')
 @app.route('/index')
 def index():
+    query = Post.query.order_by(Post.timestamp.desc())
+    articles = query.paginate(1, 4, False).items
+    print articles
     return render_template("index.html", 
-            title = "Home")
+            title = "Home",
+            articles=articles)
 
 @lm.user_loader
 def load_user(id):
@@ -58,4 +62,18 @@ def register():
         return redirect(url_for('index'))
     return render_template('register.html',
         title='Register',
+        form = form)
+
+@app.route('/post-article', methods = ['GET', 'POST'])
+def post_article():
+    if g.user is None or not g.user.is_authenticated() or g.user.role < ROLE_WRITER:
+      return redirect(url_for('index'))
+    form = PostArticle()
+    if form.validate_on_submit():
+        article = Post(body = form.content.data, title=form.title.data, description=form.description.data, category=form.category.data, machine_name=form.machine_name.data, author=g.user, type="article", timestamp = datetime.utcnow())
+        db.session.add(article)
+        db.session.commit()
+        return redirect(url_for('index'))
+    return render_template('post_article.html',
+        title='Post Article',
         form = form)

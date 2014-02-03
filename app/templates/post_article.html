@@ -1,0 +1,42 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+{% block content %}
+	<div id="postform" class="cutcorner">
+	<form method="post" action="" name="post_article">
+        {{form.hidden_tag()}}
+        <table class="form">
+        			<tr>
+                        <td>Title: </td><td>{{form.title}}</td>
+                        <td>{% for error in form.errors.title %}
+                        <span style="color: red;">{{error}}</span>
+                        {% endfor %}</td>
+                	</tr>
+            		<tr>
+                        <td>Machine Name: </td><td>{{form.machine_name}}</td>
+                        <td>{% for error in form.errors.machine_name %}
+                        <span style="color: red;">{{error}}</span>
+                        {% endfor %}</td>
+                	</tr>
+            		<tr>
+                        <td>Category: </td><td>{{form.category}}</td>
+                        <td>{% for error in form.errors.category %}
+                        <span style="color: red;">{{error}}</span>
+                        {% endfor %}</td>
+                	</tr>
+            		<tr>
+                        <td>Description: </td><td>{{form.description}}</td>
+                        <td>{% for error in form.errors.description %}
+                        <span style="color: red;">{{error}}</span>
+                        {% endfor %}</td>
+                	</tr>
+            		<tr>
+                        <td>Content: </td><td>{{form.content}}</td>
+                        <td>{% for error in form.errors.content %}
+                        <span style="color: red;">{{error}}</span>
+                        {% endfor %}</td>
+                	</tr>
+                 <tr><td></td><td><input type="submit" value="Register" style="float: right;"></td></tr>
+        </table>
+    </form>
+</div>
+{% endblock %}

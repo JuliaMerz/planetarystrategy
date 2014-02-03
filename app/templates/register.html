@@ -1,3 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="cutcorner">
 <form action="" method="post" name="register">
         {{form.hidden_tag()}}
         <table class="form">
@@ -39,5 +42,5 @@
                 <tr><td></td><td><input type="submit" value="Register" style="float: right;"></td></tr>
         </table>
 </form>
-
-
+    </div>
+{% endblock %}

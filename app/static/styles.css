@@ -9,14 +9,13 @@ html{
 
 .wrapper {
     background-color: #333;
-    padding: 10px;
     /*display: block;
     border: solid black 1px;*/
     margin: 15px;
 }
-#content {
+#sitecontent {
     float: left;
-	width: 786px;
+	width: 812px;
     margin-top: 0;
 }
 
@@ -38,10 +37,12 @@ html{
 }
 
 .cutcorner{
-    padding-left: +15px;
-    padding-right: +15px;
+    margin-bottom: 15px;
+    padding:15px;
+    padding-left: 20px;
+    padding-right: 20px;
     
-    background: #333333; /* credits to Lea Verou from http://lea.verou.me/2011/03/beveled-corners-negative-border-radius-with-css3-gradients/ */
+    background: #222222; /* credits to Lea Verou from http://lea.verou.me/2011/03/beveled-corners-negative-border-radius-with-css3-gradients/ */
     background:
         -linear-gradient(45deg,  transparent 10px, #222222 10px),
         -linear-gradient(135deg, transparent 10px, #222222 10px),
@@ -63,9 +64,9 @@ html{
         -webkit-linear-gradient(225deg, transparent 10px, #222222 10px),
         -webkit-linear-gradient(315deg, transparent 10px, #222222 10px);
     background-position: bottom left, bottom right, top right, top left;
-    -moz-background-size: 50% 50%;
-    -webkit-background-size: 50% 50%;
-    background-size: 50% 50%;
+    -moz-background-size: 51% 51%;
+    -webkit-background-size: 51% 51%;
+    background-size: 51% 51%;
     background-repeat: no-repeat;
 }
 .menu {

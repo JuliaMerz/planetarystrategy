@@ -40,6 +40,7 @@ class Post(db.Model):
     machine_name = db.Column(db.String(30), index= True)
     type = db.Column(db.String(30), index = True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    timestamp = db.Column(db.DateTime)
 
     def __repr__(self):
         return '<Post %r>' % (self.body)
