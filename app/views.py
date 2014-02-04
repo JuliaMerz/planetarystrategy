@@ -11,10 +11,22 @@ from models import User, Post, ROLE_WRITER
 def index():
     query = Post.query.order_by(Post.timestamp.desc())
     articles = query.paginate(1, 4, False).items
-    print articles
     return render_template("index.html", 
             title = "Home",
             articles=articles)
+'''
+@app.route('/get-article/<id>')
+def get_article(id):
+    article = Post.query.get(id)
+    return render_template("article-inner.html",
+            article=article)
+
+@app.route('/get-article-preview/<id>')
+def get_article_preview(id):
+    article = Post.query.get(id)
+    return render_template("articlepreview-inner.html",
+            article=article)
+'''
 
 @lm.user_loader
 def load_user(id):
@@ -28,12 +40,12 @@ def before_request():
         db.session.add(g.user)
         db.session.commit()
 
-@app.route('/article/<article>')
+@app.route('/article/<articleid>')
 def article(articleid):
     article = Post.query.get(articleid)
     if not article:
         abort(404)
-    return render_template('articlepage.html',
+    return render_template('article_page.html',
             article = article)
     
 

@@ -6,6 +6,7 @@ html{
 
 h3 {
     font-family: 'Aldrich';
+    color: cyan;
 }
 h1 {
     font-family: 'Aldrich';
@@ -42,6 +43,14 @@ h1 {
 #topmenu {
     width:auto;
     padding:0px;
+}
+.cutcorner span{
+    font-size:0.8em;
+}
+
+.cutcorner h3{
+    margin-top:0;
+    margin-bottom: 5px;
 }
 
 .cutcorner{
