@@ -1,6 +1,14 @@
 html{
     background-color:#333333;
     color: white;
+    font-family: 'Fauna One', sans-serif;
+}
+
+h3 {
+    font-family: 'Aldrich';
+}
+h1 {
+    font-family: 'Aldrich';
 }
 #body {
     width: 1200px;
@@ -64,9 +72,9 @@ html{
         -webkit-linear-gradient(225deg, transparent 10px, #222222 10px),
         -webkit-linear-gradient(315deg, transparent 10px, #222222 10px);
     background-position: bottom left, bottom right, top right, top left;
-    -moz-background-size: 51% 51%;
-    -webkit-background-size: 51% 51%;
-    background-size: 51% 51%;
+    -moz-background-size: 52% 52%;
+    -webkit-background-size: 52% 52%;
+    background-size: 52% 52%;
     background-repeat: no-repeat;
 }
 .menu {

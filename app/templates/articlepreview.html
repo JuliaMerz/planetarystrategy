@@ -1,6 +1,7 @@
-<div class="article cutcorner">
+<div id="article-{{article.id}}" class="article cutcorner">
     <h3>{{article.title}}</h3>
-	<span>Posted by {{article.author.username}} on {{article.timestamp}}.</span>
+	<span>Posted by {{article.author.username}} on {{article.timestamp.month}}/{{article.timestamp.day}}/{{article.timestamp.year}} at {{article.timestamp.hour}}:{{article.timestamp.minute}}.</span>
 
     <p>{{article.description}}</p>
+    <a href="#" onclick="loadArticle({{article.id}})">Full Article</a>
 </div>
