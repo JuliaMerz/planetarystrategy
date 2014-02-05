@@ -102,6 +102,17 @@ a:focus {
 a:active {
     color: #00FFFF;
 }
+/* CLEAN LINK TABLE used for twitch stream atm */
+.linktable {
+    border-spacing: 0px;
+    
+}
+.linktable td {
+    padding-bottom: 10px;
+}
+.linktable a:link {
+    text-decoration: none;
+}
 
 /* CONTENT BOXES */
 .cutcorner span{

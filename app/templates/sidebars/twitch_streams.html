@@ -1,7 +1,13 @@
 <div id="sidebar-{{sidebar['name']}}" class="cutcorner">
-    <h3>PA Twitch Streams</h3>
+    <h3>PA Twitch Streams (LIVE)</h3>
     <hr>
-{% for stream in sidebar['data'] %}
-<a target="_blank" href="{{stream['channel']['url']}}">{{stream['channel']['display_name']}} - {{stream['channel']['status']}}</a>
-{% endfor %}
+    <table class="linktable">
+        {% for stream in sidebar['data'] %}
+        <tr>
+            <td>
+        		<a target="_blank" href="{{stream['channel']['url']}}">{{stream['channel']['display_name']}} - {{stream['channel']['status']}}</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
 </div>
