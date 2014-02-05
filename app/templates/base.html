@@ -7,15 +7,16 @@
         <link rel="stylesheet" href="/static/styles.css">
     </head>
 <div id="body">
-    <div id="banner" class="wrapper"><h1>PlanetaryStrategy</h1></div>
+    <div id="banner" class="wrapper"><h1>PlanetaryStrategy <b>- Planetary Annihilation Tips, Tricks, and Strategies</b></h1></div>
         <div id="topmenu" class="wrapper cutcorner"><table class="menu"><tr>
             
             <td><a href="/">Home</a></td>
-            <td><a href="/tips-and-tricks">Tips and Tricks</a></td>
+            <td><a href="/news">News</a></td>
+            <td><a href="/general-guides">General Guides</a></td>
             <td><a href="/units">Units and Buildings</a></td>
             <td><a href="/build-orders">Build Orders</a></td>
             <td><a href="/blog">Blog</a></td>
-            <td><a href="/arbout">About</a></td>
+            <td><a href="/about">About</a></td>
             
         </tr></table></div>
     {% with messages = get_flashed_messages() %}
@@ -34,7 +35,12 @@
     {% block content %}{% endblock %}
     </div>
     <!-- THIS IS WHERE THE INDEX CUTS OFF THE BASE INHERIT-->
-        <div id="sidebar" class="wrapper cutcorner">This is our shitty sidebar!!!
+    
+    <div id="sidebar" class="wrapper">
+        
+        {% for sidebar in sidebars %}
+        {% include "sidebars/"+sidebar['machine_name']+".html" %}
+        {% endfor %}
     </div>
 </div>
 

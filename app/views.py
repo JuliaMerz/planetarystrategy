@@ -5,6 +5,18 @@ from forms import LoginForm, RegisterForm, PostArticle
 from werkzeug.security import generate_password_hash
 from datetime import datetime
 from models import User, Post, ROLE_WRITER
+from sidebars import twitch_streams
+
+@app.route('/news')
+@app.route('/general-guides')
+@app.route('/units')
+@app.route('/build-orders')
+@app.route('/blog')
+@app.route('/about')
+def coming_soon():
+    return render_template("coming_soon.html",
+            sidebars = g.sidebars,
+            title="Coming Soon")
 
 @app.route('/')
 @app.route('/index')
@@ -12,6 +24,7 @@ def index():
     query = Post.query.order_by(Post.timestamp.desc())
     articles = query.paginate(1, 4, False).items
     return render_template("index.html", 
+            sidebars = g.sidebars,
             title = "Home",
             articles=articles)
 '''
@@ -35,6 +48,9 @@ def load_user(id):
 @app.before_request
 def before_request():
     g.user = current_user
+    g.sidebars = []
+    g.sidebars.append({'machine_name':'twitch_streams', 'data': twitch_streams()})
+    print g.sidebars
     if g.user.is_authenticated():
         g.user.last_seen = datetime.utcnow()
         db.session.add(g.user)
@@ -46,7 +62,9 @@ def article(articleid):
     if not article:
         abort(404)
     return render_template('article_page.html',
-            article = article)
+            article = article,
+            sidebar = g.sidebars,
+            title = article.title)
     
 
 @app.route('/login', methods = ['GET', 'POST'])
@@ -59,6 +77,7 @@ def login():
             flash('Error logging in')
         return redirect(request.args.get('next') or url_for('index'))
     return render_template('login.html',
+            sidebar = g.sidebars,
         title = 'Login',
         form = form)
 
@@ -73,6 +92,7 @@ def register():
         db.session.commit()
         return redirect(url_for('index'))
     return render_template('register.html',
+            sidebar = g.sidebars,
         title='Register',
         form = form)
 
@@ -88,4 +108,5 @@ def post_article():
         return redirect(url_for('index'))
     return render_template('post_article.html',
         title='Post Article',
+            sidebar = g.sidebars,
         form = form)

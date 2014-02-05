@@ -3,7 +3,15 @@ html{
     color: white;
     font-family: 'Fauna One', sans-serif;
 }
+p {
+    font-size: 0.9em;
+}
 
+a {
+    font-size: 0.9em;
+}
+
+/* STYLING FOR HEADINGS */
 h3 {
     font-family: 'Aldrich';
     color: cyan;
@@ -12,6 +20,20 @@ h1 {
     color: cyan;
     font-family: 'Aldrich';
 }
+
+/* STYLING FOR THE TOP BANNER */
+#banner h1{
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    /*margin-left: 15px;
+    margin-bottom: -10px;*/
+}
+#banner h1 b{
+    font-size: 0.7em;
+    color: #FFFFFF;
+}
+
+/* RANDOM STUFF */
 #body {
     width: 1200px;
     margin: auto;
@@ -40,23 +62,29 @@ h1 {
     width:auto;
 }
 
+/* STYLING FOR THE TOP MENU */
+.menu {
+    width:100%;
+}
 #topmenu {
     width:auto;
     padding:0px;
 }
 #topmenu table {
     margin: 0px;
+    border-spacing:0px;
     padding 0px;
 }
 #topmenu table tr td{
     padding: 10px;
 }
 #topmenu table tr td a{
-    padding: 0px;
     text-decoration:none;
-    padding: 10px;
+    font-size: 1em;
+    padding: 10px 25px;
+    
 }
-
+/* HYPERLINKS */
 a:link {
    color:white; 
 }
@@ -65,6 +93,7 @@ a:visited {
 }
 a:hover {
     color: #00FFFF;
+    background: #555555;
 }
 a:focus {
     color: #00FFFF;
@@ -72,8 +101,9 @@ a:focus {
 }
 a:active {
     color: #00FFFF;
-    
 }
+
+/* CONTENT BOXES */
 .cutcorner span{
     font-size:0.8em;
 }
@@ -116,8 +146,4 @@ a:active {
     background-size: 52% 52%;
     background-repeat: no-repeat;
 }
-.menu {
-    width:100%;
-}
 
-a:link {
