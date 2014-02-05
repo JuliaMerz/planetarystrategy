@@ -1,16 +1,23 @@
 <html>
 	<head>
     	<title>{{title}}</title>
-        <link href='http://fonts.googleapis.com/css?family=Abel|Antic+Slab|Cabin:400,500,400italic|Fauna+One|ABeeZee|Anaheim|Exo+2:400,500|Alef|Actor|Advent+Pro|Aldrich|Karla:400,400italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Fauna+One|Aldrich' rel='stylesheet' type='text/css'>
         <script src="/static/utility.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
         <link rel="stylesheet" href="/static/styles.css">
     </head>
 <div id="body">
-    <div id="banner" class="wrapper"><h1>THIS IS A BANNER FOR THE WEBSITE</h1></div>
-        <div id="topmenu" class="wrapper"><table class="menu cutcorner"><tr>
-                <td>Home</td><td>Articles</td><td>Units and Buildings</td><td>Strategy Guides</td><td>Blog</td><td>About</td>
-            </tr></table></div>
+    <div id="banner" class="wrapper"><h1>PlanetaryStrategy</h1></div>
+        <div id="topmenu" class="wrapper cutcorner"><table class="menu"><tr>
+            
+            <td><a href="/">Home</a></td>
+            <td><a href="/tips-and-tricks">Tips and Tricks</a></td>
+            <td><a href="/units">Units and Buildings</a></td>
+            <td><a href="/build-orders">Build Orders</a></td>
+            <td><a href="/blog">Blog</a></td>
+            <td><a href="/arbout">About</a></td>
+            
+        </tr></table></div>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     <div id="messages" class="cutcorner">

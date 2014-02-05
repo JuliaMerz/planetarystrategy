@@ -9,6 +9,7 @@ h3 {
     color: cyan;
 }
 h1 {
+    color: cyan;
     font-family: 'Aldrich';
 }
 #body {
@@ -37,12 +38,41 @@ h1 {
     /*order: solid black 1px;*/
     text-align:center;
     width:auto;
-    padding: 10px;
 }
 
 #topmenu {
     width:auto;
     padding:0px;
+}
+#topmenu table {
+    margin: 0px;
+    padding 0px;
+}
+#topmenu table tr td{
+    padding: 10px;
+}
+#topmenu table tr td a{
+    padding: 0px;
+    text-decoration:none;
+    padding: 10px;
+}
+
+a:link {
+   color:white; 
+}
+a:visited {
+    color: white;
+}
+a:hover {
+    color: #00FFFF;
+}
+a:focus {
+    color: #00FFFF;
+    
+}
+a:active {
+    color: #00FFFF;
+    
 }
 .cutcorner span{
     font-size:0.8em;
@@ -89,3 +119,5 @@ h1 {
 .menu {
     width:100%;
 }
+
+a:link {
