@@ -49,6 +49,7 @@ def load_user(id):
 def before_request():
     g.user = current_user
     g.sidebars = []
+    g.sidebars.append({'machine_name':'useful_links'})
     g.sidebars.append({'machine_name':'twitch_streams', 'data': twitch_streams()})
     print g.sidebars
     if g.user.is_authenticated():
