@@ -34,7 +34,7 @@ class User(db.Model):
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(120))
-    description = db.Column(db.String(400))
+    description = db.Column(db.String(1000))
     body = db.Column(db.Text)
     category = db.Column(db.String(30), index = True)
     machine_name = db.Column(db.String(30), index= True)

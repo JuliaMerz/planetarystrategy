@@ -1,7 +1,7 @@
 <div id="article-{{article.id}}" class="article cutcorner">
-    <h3>{{article.title}}</h3>
+    <a class="title" href="/article/{{article.machine_name}}" ><h3>{{article.title}}</h3></a>
 	<span>Posted by {{article.author.username}} on {{article.timestamp.month}}/{{article.timestamp.day}}/{{article.timestamp.year}} at {{article.timestamp.hour}}:{{article.timestamp.minute}}.</span>
 	<hr>
     <p>{{article.description}}</p>
-    <a href="/article/{{article.id}}" >Read Full Article</a>
+    <a href="/article/{{article.machine_name}}" >Read Full Article</a>
 </div>

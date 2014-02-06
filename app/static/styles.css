@@ -16,9 +16,17 @@ h3 {
     font-family: 'Aldrich';
     color: cyan;
 }
+/* Special case for title links */
+a:link.title {
+    text-decoration: none;
+}
 h2 {
     font-family: 'Aldrich';
     color:cyan;
+}
+/* Fix Styling for heading links */
+a h2 {
+    text-decoration: none;
 }
 h1 {
     color: cyan;
@@ -49,6 +57,7 @@ h1 {
     border: solid black 1px;*/
     margin: 15px;
 }
+
 #sitecontent {
     float: left;
 	width: 812px;

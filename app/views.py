@@ -59,9 +59,14 @@ def before_request():
 
 @app.route('/article/<articleid>')
 def article(articleid):
-    article = Post.query.get(articleid)
-    if not article:
-        abort(404)
+    if type(articleid) is int:
+        article = Post.query.get(articleid)
+        if not article:
+            abort(404)
+    else:
+        article = Post.query.filter_by(machine_name=articleid).order_by(Post.timestamp.desc()).first()
+        if not article:
+            abort(404)
     return render_template('article_page.html',
             article = article,
             sidebar = g.sidebars,

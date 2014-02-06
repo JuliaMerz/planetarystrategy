@@ -44,6 +44,6 @@ class RegisterForm(Form):
 class PostArticle(Form):
     content = TextAreaField('content', validators = [Required()])
     machine_name = TextField('machine_name', validators = [Required(), Length(max=30)])
-    description = TextAreaField('description', validators = [Required(), Length(max=400)])
+    description = TextAreaField('description', validators = [Required(), Length(max=1000)])
     category = TextField('category', validators =[Required(), Length(max=30)])
     title = TextField('title', validators = [Required(), Length(max=120)])
