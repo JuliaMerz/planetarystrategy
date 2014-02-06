@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+ 	<div class="cutcorner"><h2>Blog</h2>
+<hr>
+        Site news, interesting stats about the site, updates on future plans, ect.
+        </div>
+	{% for article in articles %}
+		{% include "articlepreview.html" %}
+	{% endfor %}
+{% endblock %}

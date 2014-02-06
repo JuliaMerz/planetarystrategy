@@ -11,7 +11,6 @@ from sidebars import twitch_streams
 @app.route('/general-guides')
 @app.route('/units')
 @app.route('/build-orders')
-@app.route('/blog')
 @app.route('/about')
 def coming_soon():
     return render_template("coming_soon.html",
@@ -40,6 +39,14 @@ def get_article_preview(id):
     return render_template("articlepreview-inner.html",
             article=article)
 '''
+@app.route('/blog')
+def blog():
+    query = Post.query.order_by(Post.timestamp.desc())
+    articles = query.paginate(1, 4, False).items
+    return render_template("blog.html", 
+            sidebars = g.sidebars,
+            title = "Blog",
+            articles=articles)
 
 @lm.user_loader
 def load_user(id):
@@ -51,7 +58,6 @@ def before_request():
     g.sidebars = []
     g.sidebars.append({'machine_name':'useful_links'})
     g.sidebars.append({'machine_name':'twitch_streams', 'data': twitch_streams()})
-    print g.sidebars
     if g.user.is_authenticated():
         g.user.last_seen = datetime.utcnow()
         db.session.add(g.user)
@@ -69,7 +75,7 @@ def article(articleid):
             abort(404)
     return render_template('article_page.html',
             article = article,
-            sidebar = g.sidebars,
+            sidebars = g.sidebars,
             title = article.title)
     
 
