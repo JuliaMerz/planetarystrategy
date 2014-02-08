@@ -25,6 +25,14 @@ def index():
             title = "Home",
             articles=articles)
 
+@app.route('/about')
+def about():
+    intro_post = Post.query.get(1)
+    return render_template("about.html",
+            sidebars = g.sidebars,
+            title = "About",
+            article = intro_post)
+    
 @app.route('/blog')
 def blog():
     query = Post.query.filter_by(type="article",category="site-news").order_by(Post.timestamp.desc())
@@ -75,7 +83,7 @@ def general_guides():
             guides=guides)
 
 @app.route('/guide/<guideid>')
-def article(guideid):
+def guide(guideid):
     if type(guideid) is int:
         guide = Post.query.get(guideid)
         if not guide:
