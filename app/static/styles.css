@@ -4,6 +4,7 @@ html{
     font-family: 'Fauna One', sans-serif;
 }
 p {
+    line-height: 1.45em;
     font-size: 0.9em;
 }
 
