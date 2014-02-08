@@ -24,19 +24,7 @@ def index():
             sidebars = g.sidebars,
             title = "Home",
             articles=articles)
-'''
-@app.route('/get-article/<id>')
-def get_article(id):
-    article = Post.query.get(id)
-    return render_template("article-inner.html",
-            article=article)
 
-@app.route('/get-article-preview/<id>')
-def get_article_preview(id):
-    article = Post.query.get(id)
-    return render_template("articlepreview-inner.html",
-            article=article)
-'''
 @app.route('/blog')
 def blog():
     query = Post.query.filter_by(type="article",category="site-news").order_by(Post.timestamp.desc())
@@ -99,7 +87,7 @@ def article(guideid):
     return render_template('guide_page.html',
             guide = guide,
             sidebars = g.sidebars,
-            title = article.title)
+            title = guide.title)
 
 @app.route('/post-guide', methods = ['GET', 'POST'])
 def post_article():
