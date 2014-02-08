@@ -67,7 +67,7 @@ def article(articleid):
 
 @app.route('/general-guides')
 def general_guides():
-    query = Post.query.filter_by(machine_name="guide").order_by(Post.timestamp.desc())
+    query = Post.query.filter_by(type="guide").order_by(Post.timestamp.desc())
     guides = query.paginate(1, 4, False).items
     return render_template("general_guides_list.html", 
             sidebars = g.sidebars,
