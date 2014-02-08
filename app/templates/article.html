@@ -1,7 +1,7 @@
-<div id="article-{{article.id}}" class="article cutcorner">
-    <h3>{{article.title}}</h3>
-	<span>Posted by {{article.author.username}} on {{article.timestamp.month}}/{{article.timestamp.day}}/{{article.timestamp.year}} at {{article.timestamp.hour}}:{{article.timestamp.minute}}.</span>
+<div id="article-{{item.id}}" class="article cutcorner">
+    <h3>{{item.title}}</h3>
+	<span>Posted by {{item.author.username}} on {{item.timestamp.month}}/{{item.timestamp.day}}/{{item.timestamp.year}} at {{item.timestamp.hour}}:{{item.timestamp.minute}}.</span>
     <hr>
 
-    <p style="white-space: pre-wrap;">{{article.body}}</p>
+    <p style="white-space: pre-wrap;">{{item.body}}</p>
 </div>

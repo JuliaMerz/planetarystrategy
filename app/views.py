@@ -19,11 +19,11 @@ def coming_soon():
 @app.route('/index')
 def index():
     query = Post.query.order_by(Post.timestamp.desc())
-    articles = query.paginate(1, 4, False).items
+    items = query.paginate(1, 4, False).items
     return render_template("index.html", 
             sidebars = g.sidebars,
             title = "Home",
-            articles=articles)
+            items=items)
 
 @app.route('/about')
 def about():
@@ -31,16 +31,16 @@ def about():
     return render_template("about.html",
             sidebars = g.sidebars,
             title = "About",
-            article = intro_post)
+            item = intro_post)
     
 @app.route('/blog')
 def blog():
     query = Post.query.filter_by(type="article",category="site-news").order_by(Post.timestamp.desc())
-    articles = query.paginate(1, 4, False).items
+    items = query.paginate(1, 4, False).items
     return render_template("blog.html", 
             sidebars = g.sidebars,
             title = "Blog",
-            articles=articles)
+            items=items)
 
 
 @lm.user_loader
@@ -61,26 +61,26 @@ def before_request():
 @app.route('/article/<articleid>')
 def article(articleid):
     if type(articleid) is int:
-        article = Post.query.get(articleid)
-        if not article:
+        item = Post.query.get(articleid)
+        if not item:
             abort(404)
     else:
-        article = Post.query.filter_by(machine_name=articleid, type="article").order_by(Post.timestamp.desc()).first()
-        if not article:
+        item = Post.query.filter_by(machine_name=articleid, type="article").order_by(Post.timestamp.desc()).first()
+        if not item:
             abort(404)
     return render_template('article_page.html',
-            article = article,
+            item = item,
             sidebars = g.sidebars,
-            title = article.title)
+            title = item.title)
 
 @app.route('/general-guides')
 def general_guides():
     query = Post.query.filter_by(type="guide").order_by(Post.timestamp.desc())
-    guides = query.paginate(1, 4, False).items
+    items = query.paginate(1, 4, False).items
     return render_template("general_guides_list.html", 
             sidebars = g.sidebars,
             title = "Home",
-            guides=guides)
+            items=items)
 
 @app.route('/guide/<guideid>')
 def guide(guideid):
@@ -93,7 +93,7 @@ def guide(guideid):
         if not guide:
             abort(404)
     return render_template('guide_page.html',
-            guide = guide,
+            item = guide,
             sidebars = g.sidebars,
             title = guide.title)
 

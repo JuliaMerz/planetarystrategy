@@ -4,7 +4,7 @@
 <hr>
         Site news, interesting stats about the site, updates on future plans, ect.
         </div>
-	{% for article in articles %}
-		{% include "articlepreview.html" %}
+	{% for item in items %}
+		{% include "article_preview.html" %}
 	{% endfor %}
 {% endblock %}
