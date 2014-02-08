@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+ 	<div class="cutcorner"><h2>Guides</h2>
+<hr>
+        Guides about Planetary Annihilation, everything from eco to army movements to long term plans. For unit advice and build orders, visit the (eventual) wiki.
+        </div>
+	{% for guide in guides %}
+		{% include "guide_preview.html" %}
+	{% endfor %}
+{% endblock %}

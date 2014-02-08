@@ -8,10 +8,8 @@ from models import User, Post, ROLE_WRITER
 from sidebars import twitch_streams
 
 @app.route('/news')
-@app.route('/general-guides')
 @app.route('/units')
 @app.route('/build-orders')
-@app.route('/about')
 def coming_soon():
     return render_template("coming_soon.html",
             sidebars = g.sidebars,
@@ -41,12 +39,13 @@ def get_article_preview(id):
 '''
 @app.route('/blog')
 def blog():
-    query = Post.query.order_by(Post.timestamp.desc())
+    query = Post.query.filter_by(type="article",category="site-news").order_by(Post.timestamp.desc())
     articles = query.paginate(1, 4, False).items
     return render_template("blog.html", 
             sidebars = g.sidebars,
             title = "Blog",
             articles=articles)
+
 
 @lm.user_loader
 def load_user(id):
@@ -70,13 +69,52 @@ def article(articleid):
         if not article:
             abort(404)
     else:
-        article = Post.query.filter_by(machine_name=articleid).order_by(Post.timestamp.desc()).first()
+        article = Post.query.filter_by(machine_name=articleid, type="article").order_by(Post.timestamp.desc()).first()
         if not article:
             abort(404)
     return render_template('article_page.html',
             article = article,
             sidebars = g.sidebars,
             title = article.title)
+
+@app.route('/general-guides')
+def general_guides():
+    query = Post.query.filter_by(machine_name="guide").order_by(Post.timestamp.desc())
+    guides = query.paginate(1, 4, False).items
+    return render_template("general_guides_list.html", 
+            sidebars = g.sidebars,
+            title = "Home",
+            guides=guides)
+
+@app.route('/guide/<guideid>')
+def article(guideid):
+    if type(guideid) is int:
+        guide = Post.query.get(guideid)
+        if not guide:
+            abort(404)
+    else:
+        guide = Post.query.filter_by(machine_name=guideid,type="guide").order_by(Post.timestamp.desc()).first()
+        if not guide:
+            abort(404)
+    return render_template('guide_page.html',
+            guide = guide,
+            sidebars = g.sidebars,
+            title = article.title)
+
+@app.route('/post-guide', methods = ['GET', 'POST'])
+def post_article():
+    if g.user is None or not g.user.is_authenticated() or g.user.role < ROLE_WRITER:
+      return redirect(url_for('index'))
+    form = PostArticle()
+    if form.validate_on_submit():
+        article = Post(body = form.content.data, title=form.title.data, description=form.description.data, category=form.category.data, machine_name=form.machine_name.data, author=g.user, type="guide", timestamp = datetime.utcnow())
+        db.session.add(article)
+        db.session.commit()
+        return redirect(url_for('index'))
+    return render_template('post_article.html',
+        title='Post Guide',
+            sidebar = g.sidebars,
+        form = form)
     
 
 @app.route('/login', methods = ['GET', 'POST'])
