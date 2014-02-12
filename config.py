@@ -1,6 +1,8 @@
+#WTForm Stuff
 CSRF_ENABLED = True
-SECRET_KEY = 'a-different-secret-key'
+SECRET_KEY = 'a-different-secret-key' #Sample, change this when deploying code.
 
+#Database config.
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
@@ -13,6 +15,6 @@ MAIL_USERNAME = None
 MAIL_PASSWORD = None
 
 # administrator list
-ADMINS = ['sebastian@sebastianmerz.com']
+ADMINS = ['sebastian@sebastianmerz.com'] #Again, change this if you fork. I don't want your emails
 
 
