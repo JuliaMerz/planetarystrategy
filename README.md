@@ -1,5 +1,5 @@
 # Planetary Strategy #
-This will probably be a private readme, since it's a production site.
+This is a combination of a just-for-fun lets-make-a-CMS-in-python project and the desire to do some cool webdesign and put up a production site for a videogame (Planetary Annihilation). You can find a live version of this code at planetarystrategy.com.
 
 ## Versioning ##
 
